@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessagesService } from './message.service';
+import { MessagesService } from './services/message.service';
 import { Datas } from './mock-datas';
 import { Person } from './person';
 

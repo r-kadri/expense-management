@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowMessagesComponent } from './show-messages/show-messages.component';
-import { MessagesService } from './message.service';
+import { MessagesService } from './services/message.service';
 import { MaterialModule } from './material-module';
 
 @NgModule({
