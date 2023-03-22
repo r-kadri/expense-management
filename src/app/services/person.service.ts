@@ -16,6 +16,10 @@ export class PersonService {
     return this.tri([...this.persons],sort);
   }
 
+  getPerson(id: number) : Person {
+    return this.persons.find(person => person.id == id) || <Person>{};
+  }
+
   tri(persons: Person[], sort: number): Person[] {
     if(sort === 1) {
       return persons.sort((p1, p2) => p1.lastname.localeCompare(p2.lastname));

@@ -11,7 +11,7 @@ export class PersonListComponent implements OnInit {
 
   persons: Person[] = []
   icons: string[] = ['arrow_forward', 'arrow_downward', 'arrow_upward'];
-  columns = ['id', 'lastname', 'firstname', 'ceiling'];
+  columns = ['id', 'lastname', 'firstname', 'ceiling', 'details'];
   sort: number = 0;
 
 

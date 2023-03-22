@@ -1,0 +1,4 @@
+.details-container{display: flex; flex-direction: column; height: 70vh; width: 80vw; margin: 1rem auto}
+.identite{display: flex; flex-direction: row; justify-content: space-between; font-size: xxx-large; margin-bottom: 1rem}
+.red{color: red}
+.mat-cell{padding: 1rem 1rem}

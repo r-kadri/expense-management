@@ -1,0 +1,7 @@
+<div class="details-container">
+    <div class="identite">
+    <span>{{person.firstname}}</span> <span>{{person.lastname}}</span>
+    <span>{{person.ceiling| number:'4.2-2'}}</span>
+    <span [class.red]="isOver()">{{amount| number:'4.2-2'}}</span>
+    </div>
+</div>
