@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessagesService } from './message.service';
 import { Datas } from './mock-datas';
 import { Person } from './person';
 
@@ -14,7 +15,8 @@ export class AppComponent {
 
   persons: Person[] = Datas.getInstance().generatePersons(20);
 
-  constructor() {
+  constructor(public messagesServices: MessagesService) {
     console.log(this.persons);
+    messagesServices.add("Hello from app component");
   }
 }

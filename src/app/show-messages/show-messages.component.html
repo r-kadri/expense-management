@@ -1,0 +1,19 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          All messages
+        </mat-panel-title>
+        <mat-panel-description>
+          {{panelOpenState ? 'Hide messages' : 'See messages'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item *ngFor="let msg of messages">
+          <mat-icon mat-list-icon>label</mat-icon>
+          <div mat-line>{{msg}}</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>
