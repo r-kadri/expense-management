@@ -1,0 +1,9 @@
+header{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    font-size: 30rem;
+}

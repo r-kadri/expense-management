@@ -12,7 +12,7 @@ export class PersonService {
 
   constructor() { }
 
-  getPersonnes(sort: number = 0): Person[] {
+  getPersons(sort: number = 0): Person[] {
     return this.tri([...this.persons],sort);
   }
 

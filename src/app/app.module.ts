@@ -8,12 +8,16 @@ import { ShowMessagesComponent } from './show-messages/show-messages.component';
 import { MessagesService } from './services/message.service';
 import { MaterialModule } from './material-module';
 import { PersonListComponent } from './person-list/person-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowMessagesComponent,
-    PersonListComponent
+    PersonListComponent,
+    DashboardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

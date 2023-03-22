@@ -11,12 +11,12 @@ export class PersonListComponent implements OnInit {
 
   persons: Person[] = []
   icons: string[] = ['arrow_forward', 'arrow_downward', 'arrow_upward'];
-  columns = ['id', 'firstname', 'lastname', 'ceiling'];
+  columns = ['id', 'lastname', 'firstname', 'ceiling'];
   sort: number = 0;
 
 
   ngOnInit(): void {
-    this.persons = this.personsService.getPersonnes();
+    this.persons = this.personsService.getPersons();
   }
 
   constructor(private personsService: PersonService) {
@@ -26,6 +26,6 @@ export class PersonListComponent implements OnInit {
   setSort() {
     this.sort = (this.sort + 1) % 3;
     console.log(this.persons);
-    this.persons = this.personsService.getPersonnes(this.sort);
+    this.persons = this.personsService.getPersons(this.sort);
   }
 }
