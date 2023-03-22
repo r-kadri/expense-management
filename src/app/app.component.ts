@@ -11,12 +11,7 @@ import { Person } from './person';
 export class AppComponent {
   title = 'expense-management';
 
-  // create persons test
-
-  persons: Person[] = Datas.getInstance().generatePersons(20);
-
   constructor(public messagesServices: MessagesService) {
-    console.log(this.persons);
     messagesServices.add("Hello from app component");
   }
 }

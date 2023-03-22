@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Expense } from '../expense';
+import { Datas } from '../mock-datas';
 import { Person } from '../person';
 
 @Injectable({
@@ -7,18 +8,18 @@ import { Person } from '../person';
 })
 export class PersonService {
 
-  persons: Person[] = [];
+  persons: Person[] = Datas.getInstance().generatePersons(20);;
 
   constructor() { }
 
   getPersonnes(sort: number = 0): Person[] {
-    return this.tri([...this.persons], sort)
+    return this.tri([...this.persons],sort);
   }
 
   tri(persons: Person[], sort: number): Person[] {
     if(sort === 1) {
       return persons.sort((p1, p2) => p1.lastname.localeCompare(p2.lastname));
-    } else if(sort === -1) {
+    } else if(sort === 2) {
       return persons.sort((p1, p2) => p2.lastname.localeCompare(p1.lastname));
     } else {
       return persons.sort((p1, p2) => p1.id - p2.id);

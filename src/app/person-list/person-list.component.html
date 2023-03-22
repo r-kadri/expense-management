@@ -1,0 +1,36 @@
+<div class="liste-personnes">
+    <button (click)="setSort()">
+        <mat-icon>{{icons[sort]}}</mat-icon>
+    </button>
+    <div class="div-table-personnes">
+        <table mat-table [dataSource]="persons">
+
+            <!-- id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> #</th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- firstname Column -->
+            <ng-container matColumnDef="firstname">
+                <th mat-header-cell *matHeaderCellDef>Firstname</th>
+                <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+            </ng-container>
+
+            <!-- lastname Column -->
+            <ng-container matColumnDef="lastname">
+                <th mat-header-cell *matHeaderCellDef>Lastname</th>
+                <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+            </ng-container>
+
+            <!-- ceiling Column -->
+            <ng-container matColumnDef="ceiling">
+                <th mat-header-cell *matHeaderCellDef>Ceiling</th>
+                <td mat-cell *matCellDef="let element"> {{element.ceiling}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+        </table>
+    </div>
+</div>

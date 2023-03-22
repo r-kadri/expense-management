@@ -1,0 +1,4 @@
+:host {margin: auto auto}
+.liste-personnes {display:flex; flex-direction: column; height:  80vh;  align-items: center}
+.div-table-personnes {height:  70vh; overflow-y: scroll;}
+.mat-table {width: 700px; }

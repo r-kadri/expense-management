@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowMessagesComponent } from './show-messages/show-messages.component';
 import { MessagesService } from './services/message.service';
 import { MaterialModule } from './material-module';
+import { PersonListComponent } from './person-list/person-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowMessagesComponent
+    ShowMessagesComponent,
+    PersonListComponent
   ],
   imports: [
     BrowserModule,
