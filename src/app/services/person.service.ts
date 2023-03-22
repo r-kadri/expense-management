@@ -7,7 +7,9 @@ import { Person } from '../person';
 })
 export class PersonService {
 
-  constructor(public persons = []) { }
+  persons: Person[] = [];
+
+  constructor() { }
 
   getPersonnes(sort: number = 0): Person[] {
     return this.tri([...this.persons], sort)
