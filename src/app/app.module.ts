@@ -11,6 +11,7 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
+import { IntroObservableComponent } from './intro-observable/intro-observable.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     PersonListComponent,
     DashboardComponent,
     PageNotFoundComponent,
-    PersonDetailsComponent
+    PersonDetailsComponent,
+    IntroObservableComponent
   ],
   imports: [
     BrowserModule,
