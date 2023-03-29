@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { filter, last, map, Observable, Observer, range } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { filter, interval, last, map, Observable, Observer, range, Subscribable, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-intro-observable',
@@ -7,8 +7,17 @@ import { filter, last, map, Observable, Observer, range } from 'rxjs';
   styleUrls: ['./intro-observable.component.css']
 })
 export class IntroObservableComponent implements OnInit {
+
+  @ViewChild('go', {static: true}) goButton?: ElementRef
+  @ViewChild('reset', {static: true}) resetButton?: ElementRef
+  @ViewChild('canvas', {static: true}) canvas?: ElementRef
   
   ngOnInit(): void {
+
+    let canvas = this.canvas!.nativeElement as HTMLCanvasElement
+    let go = this.goButton!.nativeElement as HTMLButtonElement
+    let reset = this.resetButton!.nativeElement as HTMLButtonElement
+
     this.greenMouse().subscribe({
       next(elt: string) { console.log(elt); },
       error(error) { console.log(error); },
@@ -32,6 +41,34 @@ export class IntroObservableComponent implements OnInit {
     this.fibonacci(20).subscribe(console.log);
     console.log("----------- fibonacci the 50th ----------");
     this.fibonacci(50).pipe(last()).subscribe(console.log);
+
+    let timer$ = interval(100).pipe(take(101));
+    let timerSubscribe: Subscription;
+
+    go.addEventListener("click", () => {
+      timerSubscribe = timer$.subscribe((val: number) => {
+        let ctx = canvas.getContext('2d');
+        let w = 500*val/100;
+        if(!!ctx)
+          this.drawRect(ctx, 0, 26, w, 50)
+      })
+    })
+    reset.addEventListener("click", () => {
+      if(!!timerSubscribe) {
+        timerSubscribe.unsubscribe()
+      }
+      let ctx = canvas.getContext("2d");
+      if(!!ctx) {
+        this.drawRect(ctx, 0, 26, 500, 50, "white");
+      }
+
+      
+    })
+  }
+
+  drawRect(ctx: CanvasRenderingContext2D, xPos: number, yPos: number, width: number, height: number, color: string = "green") {
+    ctx.fillStyle = color;
+    ctx.fillRect(xPos , yPos, width, height);
   }
 
   /**

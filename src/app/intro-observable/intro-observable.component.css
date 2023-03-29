@@ -1,0 +1,4 @@
+:host {margin: auto auto}
+.container {display:flex; flex-direction: column; height:  80vh;  align-items: center}
+.cmd  {display:flex; flex-direction: row; height: 2rem; gap: 10px; align-items: center}
+.progression {display:flex; flex-direction: column; align-items: center}
