@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, map, Observable, Observer, range } from 'rxjs';
+import { filter, last, map, Observable, Observer, range } from 'rxjs';
 
 @Component({
   selector: 'app-intro-observable',
@@ -17,18 +17,21 @@ export class IntroObservableComponent implements OnInit {
 
     this.rangeValeurs(5, 25).subscribe(console.log);
 
-    // Only even numbers
-    console.log("#######################")
+    console.log("----------- Only even numbers ----------")
     this.rangeValeurs(5, 25).pipe(
       filter((elt) => elt%2 == 0)
     ).subscribe((console.log));
 
-    // Only odd numberso which we applied : odd * 2 + 1.
-    console.log("#######################")
+    console.log("----------- Only odd numberso which we applied : odd * 2 + 1 ----------");
     this.rangeValeurs(5, 25).pipe(
       filter(elt => elt % 2 == 1),
       map(elt => elt * 2 + 1),
     ).subscribe((console.log));
+
+    console.log("----------- fibonacci the 20 firsts ----------");
+    this.fibonacci(20).subscribe(console.log);
+    console.log("----------- fibonacci the 50th ----------");
+    this.fibonacci(50).pipe(last()).subscribe(console.log);
   }
 
   /**
@@ -68,4 +71,34 @@ export class IntroObservableComponent implements OnInit {
   rangeValeurs(lv: number, hv: number): Observable<number> {
     return range(lv, hv-lv+1);
   }
+
+  fibonacci(n: number): Observable<number> {
+    const fibonacci$ = new Observable<number>(observer => {
+        if (n == 0) {
+          observer.next(0);
+        } else if (n == 1) {
+          observer.next(0);
+          observer.next(1);
+        } else {
+          let fn_2 = 0;
+          let fn_1 = 1;
+          let fn = 0;
+          observer.next(0);
+          observer.next(1);
+          for (let i = 2; i <= n; i++) {
+            fn = fn_1 + fn_2;
+            fn_2 = fn_1;
+            fn_1 = fn;
+            observer.next(fn);
+          }
+          observer.complete();
+        }
+        observer.complete();
+
+      }
+
+    );
+    return fibonacci$;
+  }
+
 }
